@@ -8,7 +8,6 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.2.RELEASE</version>
 	</parent>
-	
 
 	<groupId>com.study.radon</groupId>
 	<artifactId>community</artifactId>
