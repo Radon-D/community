@@ -1,0 +1,11 @@
+#忽略所有后缀为.classpath的文件
+*.classpath
+
+#忽略target目录下所有文件
+target/
+
+#忽略.settings目录下所有文件
+.settings/
+
+#忽略.project文件
+.project
