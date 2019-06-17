@@ -9,7 +9,6 @@
 		<version>2.0.2.RELEASE</version>
 	</parent>
 
-
 	<groupId>com.study.radon</groupId>
 	<artifactId>community</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
