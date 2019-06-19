@@ -59,6 +59,20 @@
 			<!--optional我没弄明白，都说必须为true，但我测试true，false，不加都可以 -->
 			<optional>true</optional>
 		</dependency>
+
+		<!-- OkHttp -->
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>4.0.0-RC1</version>
+		</dependency>
+
+		<!-- Fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.58</version>
+		</dependency>
 	</dependencies>
 
 	<build>
