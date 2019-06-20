@@ -1,5 +1,8 @@
 package com.study.radon.community.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -32,19 +35,31 @@ public class AuthorizeController {
 
     @GetMapping("/callback")
     public String callback(@RequestParam(name="code")String code,
-                           @RequestParam(name="state")String state) {
+                           @RequestParam(name="state")String state,
+                           HttpServletRequest request) {
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setClient_id(clientId);
         accessTokenDTO.setClient_secret(clientSecret);
         accessTokenDTO.setCode(code);
         accessTokenDTO.setRedirect_uri(redirectUri);
         accessTokenDTO.setState(state);
+        
         // 获取access_token
         String access_token = githubProvider.getAccessToken(accessTokenDTO);
+        
         // 根据access_token获取user信息
         GithubUserDTO userInfo = githubProvider.getUser(access_token);
-        System.out.println(userInfo.getName());
-        return "index";
+        
+        // 获取session
+        HttpSession session = request.getSession();
+
+        // session登录
+        if (null != userInfo) {
+            session.setAttribute("user", userInfo);
+            return "redirect:/";
+        } else {
+            return "redirect:/";
+        }
     }
     
 }
